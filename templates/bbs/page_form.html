@@ -5,6 +5,10 @@
         <title>睡眠</title>
     </head>
     <body>
-        <a href="{% url 'bbs:page_create' %}">投稿する</a>
+        <form action="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">投稿</button>
+        </form>
     </body>
 </html>
