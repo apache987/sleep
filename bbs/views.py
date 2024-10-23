@@ -1,10 +1,12 @@
 from django.shortcuts import render,redirect
 from django.views import View
+from .models import Page
 from .forms import PageForm
 
 class IndexView(View):
     def get(self,request):
-        return render(request,"bbs/index.html")
+        page_list = Page.objects.all()
+        return render(request,"bbs/index.html",{"page_list":page_list})
 
 class PageCreateView(View):
     def get(self,request):
